@@ -14,19 +14,16 @@ pokemon_name = ""
 if pokemon_choice == 1:
     pokemon_name = "Pikachu"
     pokemon_hp = 420
-    enemy_damage = 200
     print(f"Pikachu is an Electric type!")
     print(f"Pikachu has {pokemon_hp} HP!")
 elif pokemon_choice == 2:
     pokemon_name = "Charmander"
     pokemon_hp = 390
-    enemy_damage = 25
     print(f"Charmander is a Fire type!")
     print(f"Charmander has {pokemon_hp} HP!")
 elif pokemon_choice == 3:
     pokemon_name = "Squirtle"
     pokemon_hp = 100
-    enemy_damage = 20
     print(f"Squirtle is a Water type!")
     print(f"Squirtle has {pokemon_hp} HP!")
 else:
@@ -36,6 +33,7 @@ print(f" {trainer_name}, chose {pokemon_name}!")
 
 enemy_name = "Charmander"
 enemy_hp = 200
+enemy_damage = 200
 
 
 print(f"{pokemon_name} has entered a battle with {enemy_name}!")
