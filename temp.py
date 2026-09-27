@@ -19,11 +19,11 @@ squirtle = {
 }
 
 pokemon =[pikachu, charmander, squirtle]
-print(pokemon[0])
-print(pokemon[1])
-print(pokemon[2])
-print(pokemon[0]["name"])
 
-print(f'{pikachu["name"]} is an {pikachu["type"]} type with {pikachu["hp"]} hp and {pikachu["damage"]} damage!')
-print(f'{charmander["name"]} is an {charmander["type"]} type with {charmander["hp"]} hp and {charmander["damage"]} damage!')
-print(f'{squirtle["name"]} is an {squirtle["type"]} type with {squirtle["hp"]} hp and {squirtle["damage"]} damage!')
+index = 0
+
+while index < 3:
+    current_pokemon = pokemon [index]
+
+    print(f'{current_pokemon["name"]} is an {current_pokemon["type"]} type with {current_pokemon["hp"]} hp and {current_pokemon["damage"]} damage!')
+    index = index + 1

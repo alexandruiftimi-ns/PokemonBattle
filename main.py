@@ -2,51 +2,56 @@ trainer_name = input("what is yout name? ")
 
 print(f"Welcome, {trainer_name}!")
 
-print(f"Choose your Pokemon:")
-print(f"1. Pikachu")
-print(f"2. Charmander")
-print(f"3. Squirtle")
 
-pokemon_choice = int(input("Enter Pokemon name (1-3):"))
+pikachu = {
+    "name" : "Pikachu",
+    "type": "Eletrict",
+    "hp": 420,
+    "attacks": ['Thunder Bolt', 'Electro Ball', 'Electic Shock']
+}
+charmander = {
+    "name" : "Charmander",
+    "type": "Fire",
+    "hp": 390,
+    "damage": 25
+}
+squirtle = {
+    "name" : "Squirtle",
+    "type": "Water",
+    "hp": 400,
+    "damage": 20
+}
 
-pokemon_name = ""
+pokemon = [pikachu, charmander, squirtle]
 
-if pokemon_choice == 1:
-    pokemon_name = "Pikachu"
-    pokemon_hp = 420
-    print(f"Pikachu is an Electric type!")
-    print(f"Pikachu has {pokemon_hp} HP!")
-elif pokemon_choice == 2:
-    pokemon_name = "Charmander"
-    pokemon_hp = 390
-    print(f"Charmander is a Fire type!")
-    print(f"Charmander has {pokemon_hp} HP!")
-elif pokemon_choice == 3:
-    pokemon_name = "Squirtle"
-    pokemon_hp = 100
-    print(f"Squirtle is a Water type!")
-    print(f"Squirtle has {pokemon_hp} HP!")
-else:
-    print(f"Unknown Pokemon!")
 
-print(f" {trainer_name}, chose {pokemon_name}!")
+number = 1
+for current_pokemon in pokemon:
+    print(f'{number}.{current_pokemon["name"]}')
+    number = number +1
+
+pokemon_choice = int(input("Choose your Pokemon:"))
+
+chosen_pokemon = pokemon[pokemon_choice - 1]
+
+print(f" {trainer_name}, chose {chosen_pokemon["name"]}!")
 
 enemy_name = "Charmander"
 enemy_hp = 200
 enemy_damage = 200
 
 
-print(f"{pokemon_name} has entered a battle with {enemy_name}!")
-print(f"Your {pokemon_name} has {pokemon_hp} HP! and your enemy {enemy_name} has {enemy_hp} HP!")
+print(f"{chosen_pokemon["name"]} has entered a battle with {enemy_name}!")
+print(f"Your {chosen_pokemon["name"]} has {chosen_pokemon["hp"]} HP! and your enemy {enemy_name} has {enemy_hp} HP!")
 
-while pokemon_hp > 0 and enemy_hp > 0:
-    print(f"{enemy_name} attacks {pokemon_name} for {enemy_damage} damage!")
-    pokemon_hp = pokemon_hp - enemy_damage
-    if pokemon_hp <0:
-        pokemon_hp = 0
-    if pokemon_hp > 0:
+while chosen_pokemon["hp"] > 0 and enemy_hp > 0:
+    print(f"{enemy_name} attacks {chosen_pokemon["name"]} for {enemy_damage} damage!")
+    chosen_pokemon["hp"] = chosen_pokemon["hp"] - enemy_damage
+    if chosen_pokemon["hp"] <0:
+        chosen_pokemon['hp'] = 0
+    if chosen_pokemon["hp"] > 0:
         
-        print(f"{pokemon_name} has {pokemon_hp} HP left!")
+        print(f"{chosen_pokemon["name"]} has {chosen_pokemon["hp"]} HP left!")
         while True:
             print("Choose your attack:")
             print("1. Quick Attack")
@@ -69,7 +74,7 @@ while pokemon_hp > 0 and enemy_hp > 0:
                 continue
 
             break
-        print(f"{pokemon_name} used {attack_name} and did {pokemon_damage} to {enemy_name}")
+        print(f"{chosen_pokemon["name"]} used {attack_name} and did {chosen_pokemon["damage"]} to {enemy_name}")
         enemy_hp = enemy_hp - pokemon_damage
         if enemy_hp <0:
             enemy_hp = 0
@@ -77,9 +82,9 @@ while pokemon_hp > 0 and enemy_hp > 0:
         if enemy_hp >0:
             continue
         else:
-            print(f"Your {pokemon_name} won the battle! {enemy_name} has fainted!")
+            print(f"Your {chosen_pokemon["name"]} won the battle! {enemy_name} has fainted!")
     else:
-        print(f"Your pokemon has {pokemon_hp} and fainted, {enemy_name} won!")
+        print(f"Your pokemon has {chosen_pokemon["hp"]} and fainted, {enemy_name} won!")
         
 
 
